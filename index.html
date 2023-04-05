@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rounded Edge Rectangle</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .background {
+      background-image: url('W.webp');
+      background-size: cover;
+      opacity: 0.5;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+
+    .rounded-rectangle {
+      position: absolute;
+      top: 5%;
+      left: 5%;
+      width: 90%;
+      height: 90%;
+      background-color: white;
+      border: 2px solid rgb(255, 255, 255);
+      border-radius: 15px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding-top: 20px;
+    }
+
+    .text {
+      font-size: 32px;
+      font-weight: bold;
+    }
+
+    .text span.gray {
+      color: rgb(255, 255, 255);
+      text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    }
+
+    .sign-in {
+      position: absolute;
+      top: 7%;
+      right: 6.5%;
+      color: #ffffff;
+      font-family: Arial, sans-serif;
+      font-weight: bold;
+      font-size: 24px;
+      cursor: pointer;
+      text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    }
+  </style>
+</head>
+<body>
+  <div class="background"></div>
+  <div class="rounded-rectangle">
+    <div class="text">
+      <span class="black">Blank</span><span class="gray">White</span><span class="black">Dot</span>
+    </div>
+  </div>
+  <div class="sign-in">Sign In</div>
+</body>
+</html>

@@ -1,0 +1,107 @@
+\<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BlankWhiteDot</title>
+<style>
+    body {
+        background-color: rgb(34, 34, 34);
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        font-family: Arial, sans-serif;
+        overflow: hidden;
+        position: relative;
+    }
+    .text-container {
+        opacity: 0;
+        animation: fadeInOut 4s linear;
+        font-size: 24px;
+        font-weight: bold;
+        position: absolute;
+    }
+    .teal {
+        color: rgb(76, 180, 180);
+    }
+    .white {
+        color: white;
+    }
+    @keyframes fadeInOut {
+        0% {
+            opacity: 0;
+        }
+        25% {
+            opacity: 1;
+        }
+        75% {
+            opacity: 1;
+        }
+        100% {
+            opacity: 0;
+        }
+    }
+    .button {
+        display: none;
+        background-color: rgb(76, 180, 180);
+        color: rgb(255, 255, 255);
+        font-size: 32px;
+        font-weight: bold;
+        padding: 15px 30px;
+        border: none;
+        border-radius: 20px;
+        box-shadow: 0 6px 8px rgba(76, 180, 180);
+        cursor: pointer;
+        opacity: 0;
+        animation: fadeIn 1s linear forwards;
+        animation-delay: 3s;
+        position: absolute;
+    }
+    @keyframes fadeIn {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+    .button-clicked {
+        animation: buttonClick 1s linear forwards;
+    }
+    @keyframes buttonClick {
+        0%, 20% {
+            transform: translateY(0);
+        }
+        30% {
+            transform: translateY(-10px);
+            box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+        }
+        100% {
+            transform: translateY(120%);
+        }
+    }
+</style>
+</head>
+<body>
+    <div class="text-container">
+        <span class="teal">Blank</span><span class="white">White</span><span class="teal">Dot</span>
+    </div>
+    <button class="button" onclick="handleButtonClick()">OPEN</button>
+<script>
+    setTimeout(() => {
+        document.querySelector('.text-container').style.animation = 'none';
+    }, 4000);
+
+    setTimeout(() => {
+        document.querySelector('.button').style.display = 'block';
+    }, 3000);
+
+    function handleButtonClick() {
+        const button = document.querySelector('.button');
+        button.classList.add('button-clicked');
+    }
+</script>
+</body>
+</html>

@@ -24,7 +24,7 @@
         position: absolute;
     }
     .teal {
-        color: rgb(103, 182, 182);
+        color: rgb(25, 206, 206);
     }
     .white {
         color: white;
@@ -48,9 +48,9 @@
         position: absolute;
         width: 100px;
         height: 100px;
-        border: 9px solid rgb(103, 182, 182);
+        border: 6px solid rgb(25, 206, 206);
         border-radius: 50%;
-        border-top-color: #aedada;
+        border-top-color: #92d6d6;
         animation: spin 2s linear infinite, fadeIn 1s linear forwards, fadeOut 1s linear forwards;
         animation-delay: 4s, 4s, 8s;
     }
@@ -78,6 +78,33 @@
             opacity: 0;
         }
     }
+    .headline {
+        opacity: 0;
+        font-size: 48px;
+        font-weight: bold;
+        color: rgb(25, 206, 206);
+        position: absolute;
+        animation: grow 1s ease-out forwards, stay 4s linear forwards, fadeOut 1s linear forwards;
+        animation-delay: 10s, 11s, 15s;
+    }
+    @keyframes grow {
+        0% {
+            transform: scale(0);
+            opacity: 0;
+        }
+        100% {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+    @keyframes stay {
+        0% {
+            opacity: 1;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
 </style>
 </head>
 <body>
@@ -85,6 +112,7 @@
         <span class="teal">Blank</span><span class="white">White</span><span class="teal">Dot</span>
     </div>
     <div class="loader"></div>
+    <div class="headline">The Key to Online Advertisement</div>
 <script>
     setTimeout(() => {
         document.querySelector('.text-container').style.animation = 'none';
@@ -93,6 +121,5 @@
     setTimeout(() => {
         document.querySelector('.loader').style.animation = 'none';
     }, 9000);
-</script>
-</body>
-</html>
+
+    setTimeout(() =>

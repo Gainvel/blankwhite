@@ -1,4 +1,4 @@
-\<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -24,7 +24,7 @@
         position: absolute;
     }
     .teal {
-        color: rgb(76, 180, 180);
+        color: rgb(103, 182, 182);
     }
     .white {
         color: white;
@@ -43,21 +43,24 @@
             opacity: 0;
         }
     }
-    .button {
-        display: none;
-        background-color: rgb(76, 180, 180);
-        color: rgb(255, 255, 255);
-        font-size: 32px;
-        font-weight: bold;
-        padding: 15px 30px;
-        border: none;
-        border-radius: 20px;
-        box-shadow: 0 6px 8px rgba(76, 180, 180);
-        cursor: pointer;
+    .loader {
         opacity: 0;
-        animation: fadeIn 1s linear forwards;
-        animation-delay: 3s;
         position: absolute;
+        width: 100px;
+        height: 100px;
+        border: 9px solid rgb(103, 182, 182);
+        border-radius: 50%;
+        border-top-color: #aedada;
+        animation: spin 2s linear infinite, fadeIn 1s linear forwards, fadeOut 1s linear forwards;
+        animation-delay: 4s, 4s, 8s;
+    }
+    @keyframes spin {
+        0% {
+            transform: rotate(0);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
     }
     @keyframes fadeIn {
         0% {
@@ -67,19 +70,12 @@
             opacity: 1;
         }
     }
-    .button-clicked {
-        animation: buttonClick 1s linear forwards;
-    }
-    @keyframes buttonClick {
-        0%, 20% {
-            transform: translateY(0);
-        }
-        30% {
-            transform: translateY(-10px);
-            box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+    @keyframes fadeOut {
+        0% {
+            opacity: 1;
         }
         100% {
-            transform: translateY(120%);
+            opacity: 0;
         }
     }
 </style>
@@ -88,20 +84,15 @@
     <div class="text-container">
         <span class="teal">Blank</span><span class="white">White</span><span class="teal">Dot</span>
     </div>
-    <button class="button" onclick="handleButtonClick()">OPEN</button>
+    <div class="loader"></div>
 <script>
     setTimeout(() => {
         document.querySelector('.text-container').style.animation = 'none';
     }, 4000);
 
     setTimeout(() => {
-        document.querySelector('.button').style.display = 'block';
-    }, 3000);
-
-    function handleButtonClick() {
-        const button = document.querySelector('.button');
-        button.classList.add('button-clicked');
-    }
+        document.querySelector('.loader').style.animation = 'none';
+    }, 9000);
 </script>
 </body>
 </html>
